@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -27,10 +26,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.modifier.modifierLocalOf
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -55,16 +53,22 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 private fun BusinessCard() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
+    Box(
+        modifier = Modifier.fillMaxSize()
     ) {
-        Row() {
-            CenterInformation()
-        }
-        Row {
-            ContactInformation()
+        BackgroundImage()
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Row() {
+                CenterInformation()
+            }
+            Row {
+                ContactInformation()
+            }
         }
     }
 }
@@ -156,6 +160,18 @@ private fun ContactInformation() {
             )
         }
     }
+}
+
+@Composable
+private fun BackgroundImage() {
+    val imagebackground = painterResource(R.drawable.background_image)
+    Image(
+        painter = imagebackground,
+        contentDescription = "imagebackground",
+        modifier = Modifier
+            .fillMaxSize(),
+        contentScale = ContentScale.Crop
+    )
 }
 
 @Preview(showBackground = true)
