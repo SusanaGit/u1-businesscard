@@ -13,12 +13,18 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Phone
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.modifier.modifierLocalOf
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -53,8 +59,55 @@ private fun BusinessCard() {
         Row() {
             CenterInformation()
         }
-        Row() {
+        Row {
+            ContactInformation()
+        }
+    }
+}
 
+@Composable
+private fun ContactInformation() {
+    Column(
+        modifier = Modifier
+            .padding(top = 200.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Row(
+            modifier = Modifier
+                .padding(10.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.Phone,
+                contentDescription = stringResource(R.string.telf)
+            )
+            Text(
+                text = stringResource(R.string.telf)
+            )
+        }
+        Row(
+            modifier = Modifier
+                .padding(10.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.AccountCircle,
+                contentDescription = stringResource(R.string.susanagit)
+            )
+            Text(
+                text = stringResource(R.string.susanagit)
+            )
+
+        }
+        Row(
+            modifier = Modifier
+                .padding(10.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.Email,
+                contentDescription = stringResource(R.string.mail)
+            )
+            Text(
+                text = stringResource(R.string.mail)
+            )
         }
     }
 }
