@@ -47,7 +47,13 @@ private fun BusinessCard() {
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        CenterInformation()
+        Box(
+            modifier = Modifier
+                .padding(top = 200.dp)
+        ) {
+            CenterInformation()
+        }
+
     }
 }
 
