@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Email
@@ -116,12 +118,13 @@ private fun Logo() {
 private fun ContactInformation() {
     Column(
         modifier = Modifier
-            .padding(top = 150.dp),
+            .padding(top = 120.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Row(
             modifier = Modifier
                 .padding(10.dp)
+                .background(Color(0xFFEEEBE6), RoundedCornerShape(20.dp)),
         ) {
             Icon(
                 imageVector = Icons.Default.Phone,
@@ -129,12 +132,15 @@ private fun ContactInformation() {
                 tint = Color(0xFF66ADE6)
             )
             Text(
-                text = stringResource(R.string.telf)
+                text = stringResource(R.string.telf),
+                modifier = Modifier
+                    .padding(5.dp)
             )
         }
         Row(
             modifier = Modifier
                 .padding(10.dp)
+                .background(Color(0xFFEEEBE6), RoundedCornerShape(20.dp)),
         ) {
             Icon(
                 imageVector = Icons.Default.AccountCircle,
@@ -142,13 +148,16 @@ private fun ContactInformation() {
                 tint = Color(0xFF66ADE6)
             )
             Text(
-                text = stringResource(R.string.susanagit)
+                text = stringResource(R.string.susanagit),
+                modifier = Modifier
+                    .padding(5.dp)
             )
 
         }
         Row(
             modifier = Modifier
                 .padding(10.dp)
+                .background(Color(0xFFEEEBE6), RoundedCornerShape(20.dp)),
         ) {
             Icon(
                 imageVector = Icons.Default.Email,
@@ -156,7 +165,9 @@ private fun ContactInformation() {
                 tint = Color(0xFF66ADE6)
             )
             Text(
-                text = stringResource(R.string.mail)
+                text = stringResource(R.string.mail),
+                modifier = Modifier
+                    .padding(5.dp)
             )
         }
     }
